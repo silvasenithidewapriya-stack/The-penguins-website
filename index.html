@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>THE PENGUINS — Think Freely. Dream Boldly. Make an Impact.</title>
+<style>
+:root{
+ --navy:#355C7D; --navy2:#DCEFF2; --gold:#F2B84B; --gold2:#F7C96A;
+ --cream:#FFFDF7; --muted:#687B89; --line:#E7B85C; --pink:#F6DDE5; --mint:#DDF1E8; --lav:#E8E0F5;
+}
+*{box-sizing:border-box} html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{font-family:Georgia,"Times New Roman",serif;background:var(--navy);color:#fff}
+button,a{font:inherit}
+.app{width:100vw;height:100vh;position:relative;background:
+ radial-gradient(circle at 15% 15%,#F6DDE5 0,transparent 30%),
+ radial-gradient(circle at 85% 20%,#DDF1E8 0,transparent 32%),
+ linear-gradient(135deg,#FFFDF7 0%,#EAF4F6 100%)}
+.app:before{content:"";position:absolute;inset:0;background-image:url("penguins-theme.jpg");
+ background-size:cover;background-position:center;opacity:.16;filter:saturate(.8);pointer-events:none}
+.screen{position:absolute;inset:0;display:none;overflow:auto;padding:24px 20px 110px;z-index:2}
+.screen.active{display:block}
+.home{overflow:hidden;padding:0}
+.home-overlay{position:absolute;inset:0;background:linear-gradient(180deg,#355C7D22 0%,#FFFDF766 50%,#FFFDF7cc 100%)}
+.home-content{position:relative;z-index:3;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:25px}
+.crest{font-size:55px;color:var(--gold2);margin-bottom:8px}
+.eyebrow{letter-spacing:4px;color:#355C7D;font-size:14px}.title{font-size:clamp(42px,9vw,90px);letter-spacing:5px;margin:6px 0;color:var(--navy);font-weight:900}
+.title span{color:var(--gold2)}.tag{font-size:clamp(15px,2vw,22px);letter-spacing:2px;max-width:850px}
+.tag span{color:var(--gold2)}
+.home-desc{max-width:650px;color:#4E6473;margin:14px 0 25px;font-size:17px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.btn{border:1px solid var(--gold);background:var(--gold);color:#081725;border-radius:7px;padding:13px 19px;font-weight:800;cursor:pointer;transition:.2s;text-decoration:none;display:inline-block}
+.btn:hover{transform:translateY(-2px);background:var(--gold2)} .btn.outline{background:#071a2dcc;color:white}
+.btn.small{padding:9px 13px;font-size:14px}
+.topbar{max-width:1100px;margin:0 auto 25px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand{font-weight:900;letter-spacing:2px;color:var(--gold2);font-size:18px}
+.back{background:transparent;color:white;border:1px solid #ffffff44;border-radius:7px;padding:9px 13px;cursor:pointer}
+.wrap{max-width:1100px;margin:auto}.heading{font-size:clamp(30px,5vw,48px);margin:10px 0 5px;color:var(--cream)}
+.sub{color:var(--muted);margin:0 0 25px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:15px}
+.card{background:#FFFFFFEE;border:1px solid #DCE8EC;border-radius:12px;padding:20px;box-shadow:0 10px 35px #0005}
+.card h3{color:var(--gold2);margin:0 0 8px;font-size:21px}.card p{color:#607481;margin:0 0 15px}
+.icon{font-size:31px;margin-bottom:9px}
+.qcard{cursor:pointer;transition:.2s}.qcard:hover{border-color:var(--gold);transform:translateY(-3px)}
+.formgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}
+label{color:var(--gold2);font-weight:bold}
+input,textarea,select{background:#FFFFFF;color:#355C7D;border:1px solid #C9D9DF;border-radius:7px;padding:12px;outline:none}
+textarea{min-height:105px;resize:vertical}input:focus,textarea:focus,select:focus{border-color:var(--gold)}
+.note{border-left:3px solid var(--gold);padding:10px 13px;background:#F7FAFB;margin:15px 0;color:#607481}
+.answers{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.answer-chip{border:1px solid #d99a20;color:#7B5A20;background:#FFF7E5;border-radius:20px;padding:8px 12px}
+.services .card{min-height:190px}.mentor{display:grid;grid-template-columns:1.2fr .8fr;gap:15px}
+.list{padding-left:20px;color:#607481}.list li{margin:7px 0}
+.status{margin-top:10px;color:#9fe2b1;display:none}
+.bottom{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:20;background:#FFFFFFEE;border:1px solid #D9E6EA;backdrop-filter:blur(12px);border-radius:999px;padding:7px;display:flex;gap:4px}
+.bottom button{border:0;background:transparent;color:#4E6473;padding:8px 11px;border-radius:999px;cursor:pointer;font-size:13px}
+.bottom button:hover,.bottom button.active{background:var(--gold);color:#071522}
+.goldline{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:15px 0}
+@media(max-width:700px){.formgrid,.mentor{grid-template-columns:1fr}.field.full{grid-column:auto}.screen{padding:18px 14px 100px}.bottom{max-width:96%;overflow:auto}.bottom button{white-space:nowrap}.home-content{justify-content:center}.title{letter-spacing:2px}}
+
+.professor{
+ position:fixed;right:18px;bottom:24px;z-index:30;display:flex;align-items:flex-end;gap:9px;
+ cursor:pointer;filter:drop-shadow(0 8px 12px #355c7d20)
+}
+.prof-penguin{width:66px;height:72px;position:relative;background:#355C7D;border-radius:48% 48% 42% 42%;border:3px solid #fff;box-shadow:0 4px 0 #E6EEF1}
+.prof-penguin:before{content:"🎓";position:absolute;top:-30px;left:10px;font-size:34px}
+.prof-penguin:after{content:"📖";position:absolute;right:-8px;bottom:5px;font-size:22px}
+.eye{position:absolute;top:22px;width:8px;height:8px;background:#fff;border-radius:50%}
+.eye.one{left:17px}.eye.two{right:17px}
+.beak{position:absolute;top:32px;left:26px;font-size:16px}
+.prof-bubble{max-width:230px;background:#fff;border:2px solid #F2B84B;color:#355C7D;border-radius:18px 18px 4px 18px;padding:10px 13px;font:700 13px Arial;box-shadow:0 7px 22px #355c7d18}
+.guide-panel{position:fixed;right:18px;bottom:105px;width:min(330px,calc(100vw - 36px));z-index:31;background:#fff;border:2px solid #F2B84B;border-radius:22px;padding:18px;box-shadow:0 18px 50px #355c7d2a;display:none}
+.guide-panel.show{display:block}.guide-panel h3{margin:0 0 7px;color:#355C7D}
+.guide-panel p{margin:0 0 12px;color:#607481;font:14px Arial;line-height:1.5}
+.guide-links{display:grid;gap:8px}.guide-links button{border:0;background:#F5F9FA;color:#355C7D;padding:10px;border-radius:10px;text-align:left;font-weight:700;cursor:pointer}
+.close-guide{float:right;border:0;background:#F6DDE5;color:#355C7D;border-radius:50%;width:26px;height:26px;cursor:pointer}
+@media(max-width:700px){.professor{right:10px;bottom:18px}.prof-penguin{width:55px;height:61px}.prof-bubble{max-width:180px;font-size:12px}.guide-panel{right:10px;bottom:98px}}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- HOME -->
+<section id="home" class="screen home active">
+ <div class="home-overlay"></div>
+ <div class="home-content">
+   <div class="crest">♛ 🐧</div>
+   <div class="eyebrow">THE PENGUINS</div>
+   <div class="title">THE <span>PENGUINS</span></div>
+   <div class="tag">THINK FREELY. <span>DREAM BOLDLY.</span> MAKE AN IMPACT.</div>
+   <p class="home-desc">A friendly space for curious minds to learn, connect, ask questions and grow together.</p>
+   <div class="actions">
+     <button class="btn" onclick="show('questions')">Explore the Question Board</button>
+     <button class="btn outline" onclick="show('profile')">Tell Us About Yourself</button>
+     <button class="btn outline" onclick="show('why')">Why The Penguins?</button>
+     <button class="btn outline" onclick="show('services')">Our Services</button>
+   </div>
+ </div>
+</section>
+
+<!-- QUESTIONS -->
+<section id="questions" class="screen">
+ <div class="topbar"><div class="brand">🐧 THE PENGUINS</div><button class="back" onclick="show('home')">← Home</button></div>
+ <div class="wrap">
+  <h1 class="heading">Question Board</h1><p class="sub">Choose a question. A second set of related questions will open so you can explore the idea more deeply.</p>
+  <div class="grid">
+   <div class="card qcard" onclick="openQuestion('career')"><div class="icon">🎓</div><h3>What career is right for me?</h3><p>Explore your interests, strengths and the kind of work you want to experience.</p><button class="btn small">Explore →</button></div>
+   <div class="card qcard" onclick="openQuestion('confidence')"><div class="icon">💡</div><h3>How can I become more confident?</h3><p>Look at confidence through small actions, strengths and self-belief.</p><button class="btn small">Explore →</button></div>
+   <div class="card qcard" onclick="openQuestion('potential')"><div class="icon">🚀</div><h3>How do I discover my potential?</h3><p>Find clues in your curiosity, skills, experiences and challenges.</p><button class="btn small">Explore →</button></div>
+   <div class="card qcard" onclick="openQuestion('speaking')"><div class="icon">🎤</div><h3>How can I improve my speaking?</h3><p>Reflect on communication, practice and what makes you comfortable.</p><button class="btn small">Explore →</button></div>
+   <div class="card qcard" onclick="openQuestion('purpose')"><div class="icon">🌍</div><h3>How can I make an impact?</h3><p>Turn curiosity and ideas into useful action for people around you.</p><button class="btn small">Explore →</button></div>
+   <div class="card qcard" onclick="openQuestion('study')"><div class="icon">📚</div><h3>How can I study smarter?</h3><p>Think about your habits, environment, goals and learning style.</p><button class="btn small">Explore →</button></div>
+  </div>
+ </div>
+</section>
+
+<!-- QUESTION DETAIL -->
+<section id="detail" class="screen">
+ <div class="topbar"><div class="brand">🐧 QUESTION EXPLORER</div><button class="back" onclick="show('questions')">← Questions</button></div>
+ <div class="wrap">
+   <div class="card">
+    <div class="icon" id="dicon">💭</div><h1 class="heading" id="dtitle"></h1>
+    <p class="sub" id="dintro"></p><div class="goldline"></div>
+    <h3 style="color:var(--gold2)">Think about these related questions:</h3>
+    <div id="subquestions" class="grid"></div>
+    <div class="note"><b>Penguins perspective:</b> <span id="dperspective"></span></div>
+    <div id="chips" class="answers"></div>
+    <button class="btn" onclick="show('why')">Share your thoughts with The Penguins →</button>
+   </div>
+ </div>
+</section>
+
+<!-- PROFILE -->
+<section id="profile" class="screen">
+ <div class="topbar"><div class="brand">🐧 YOUR PENGUINS PROFILE</div><button class="back" onclick="show('home')">← Home</button></div>
+ <div class="wrap">
+  <h1 class="heading">Tell Us About Yourself</h1><p class="sub">Your answers help us understand your interests and how the community can support you.</p>
+  <form id="profileForm" class="card formgrid">
+   <div class="field"><label>Your name</label><input id="pname" required placeholder="Enter your name"></div>
+   <div class="field"><label>Your age</label><input id="page" required type="number" min="10" max="100" placeholder="Age"></div>
+   <div class="field"><label>Education level</label><select id="pedu"><option>School student</option><option>Advanced Level</option><option>University</option><option>Other</option></select></div>
+   <div class="field"><label>Main skill</label><input id="pskill" placeholder="e.g. writing, ICT, art"></div>
+   <div class="field"><label>Hobby</label><input id="phobby" placeholder="What do you enjoy?"></div>
+   <div class="field"><label>Something you are curious about</label><input id="pcurious" placeholder="A topic, question or idea"></div>
+   <div class="field full"><label>Tell us a little about yourself</label><textarea id="pabout" placeholder="Write anything you would like us to know..."></textarea></div>
+   <div class="field full"><button class="btn" type="submit">Submit My Profile on WhatsApp →</button><div class="status" id="pstatus">WhatsApp is opening with your answers.</div></div>
+  </form>
+ </div>
+</section>
+
+<!-- WHY -->
+<section id="why" class="screen">
+ <div class="topbar"><div class="brand">🐧 WHY THE PENGUINS?</div><button class="back" onclick="show('home')">← Home</button></div>
+ <div class="wrap">
+  <h1 class="heading">Why Did You Choose The Penguins?</h1>
+  <p class="sub">There is no “right” answer. Your perspective is what makes the community unique.</p>
+  <form id="whyForm" class="card formgrid">
+   <div class="field full"><label>Why did you choose The Penguins?</label><textarea id="wchoose" required placeholder="Tell us what brought you here..."></textarea></div>
+   <div class="field"><label>How do you contribute to curiosity?</label><textarea id="wcuriosity" placeholder="How do you ask, explore or investigate ideas?"></textarea></div>
+   <div class="field"><label>What idea would you like to bring to the community?</label><textarea id="widea" placeholder="A project, discussion, workshop, question..."></textarea></div>
+   <div class="field"><label>How could you help another Penguin?</label><textarea id="whelp" placeholder="A skill, encouragement, knowledge or idea"></textarea></div>
+   <div class="field"><label>What would you like to learn here?</label><textarea id="wlearn" placeholder="Tell us what you want to discover"></textarea></div>
+   <div class="field full"><label>Complete this sentence: “I am a Penguin because…”</label><input id="wpenguin" placeholder="Your answer..."></div>
+   <div class="field full"><button class="btn" type="submit">Submit My Answers on WhatsApp →</button><div class="status" id="wstatus">WhatsApp is opening with your answers.</div></div>
+  </form>
+ </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="screen services">
+ <div class="topbar"><div class="brand">🐧 OUR SERVICES</div><button class="back" onclick="show('home')">← Home</button></div>
+ <div class="wrap"><h1 class="heading">What The Penguins Offers</h1><p class="sub">Choose a service to learn more or contact us.</p>
+  <div class="grid">
+   <div class="card"><div class="icon">🧠</div><h3>Psychology Sessions</h3><p>Educational sessions exploring psychology, confidence, communication and self-development.</p><button class="btn small" onclick="contact('Psychology Sessions')">Ask About This</button></div>
+   <div class="card"><div class="icon">💭</div><h3>Philosophy & Big Ideas</h3><p>Explore paradoxes, curiosity, thought experiments and questions that challenge ordinary thinking.</p><button class="btn small" onclick="contact('Philosophy & Big Ideas')">Ask About This</button></div>
+   <div class="card"><div class="icon">🎤</div><h3>Speaking & Presentation</h3><p>Practice self-introduction, speaking skills, presentation confidence and communication.</p><button class="btn small" onclick="contact('Speaking & Presentation')">Ask About This</button></div>
+   <div class="card"><div class="icon">🚀</div><h3>Potential & Skills</h3><p>Activities and reflection to help you identify strengths, interests and skills you want to develop.</p><button class="btn small" onclick="contact('Potential & Skills')">Ask About This</button></div>
+   <div class="card"><div class="icon">🤝</div><h3>Mentorship</h3><p>Have a question or personal development goal? Reach out and discuss how a mentor can guide you.</p><button class="btn small" onclick="show('mentor')">Go to Mentor Board</button></div>
+   <div class="card"><div class="icon">🌟</div><h3>Penguins Community</h3><p>Join the WhatsApp community to share ideas, questions, workshops and learning opportunities.</p><a class="btn small" target="_blank" href="https://chat.whatsapp.com/IOxnCjawEJvHiYDpEAiAsf">Join WhatsApp</a></div>
+  </div>
+ </div>
+</section>
+
+<!-- MENTOR -->
+<section id="mentor" class="screen">
+ <div class="topbar"><div class="brand">🐧 MENTOR BOARD</div><button class="back" onclick="show('services')">← Services</button></div>
+ <div class="wrap">
+  <h1 class="heading">Talk to a Mentor</h1><p class="sub">Choose what you need guidance with, then contact Senithi directly through WhatsApp.</p>
+  <div class="mentor">
+   <div class="card">
+    <h3>What would you like help with?</h3>
+    <div class="grid" style="margin-top:15px">
+     <button class="btn outline" onclick="contact('Career guidance')">🎓 Career guidance</button>
+     <button class="btn outline" onclick="contact('Confidence')">💡 Confidence</button>
+     <button class="btn outline" onclick="contact('Speaking skills')">🎤 Speaking skills</button>
+     <button class="btn outline" onclick="contact('Finding my potential')">🚀 Finding my potential</button>
+     <button class="btn outline" onclick="contact('Study and learning')">📚 Study & learning</button>
+     <button class="btn outline" onclick="contact('Another question')">💭 Another question</button>
+    </div>
+   </div>
+   <div class="card"><div class="icon">🤝</div><h3>Contact The Penguins</h3><p>Send your question directly to Senithi on WhatsApp.</p><button class="btn" onclick="contact('Mentor request')">Contact Me on WhatsApp →</button><div class="note">Please avoid sharing passwords, financial information, or other private information.</div></div>
+  </div>
+ </div>
+</section>
+
+
+<div class="professor" onclick="toggleGuide()" aria-label="Professor Penguin guide">
+  <div class="prof-bubble">Hi! I'm Professor Penguin 🐧<br>Need help finding your way?</div>
+  <div class="prof-penguin"><span class="eye one"></span><span class="eye two"></span><span class="beak">🟨</span></div>
+</div>
+<div id="guidePanel" class="guide-panel">
+  <button class="close-guide" onclick="toggleGuide(event)">×</button>
+  <h3>Professor Penguin says… 🐧🎓</h3>
+  <p>Don't worry if you're not sure where to start. Pick what sounds useful to you!</p>
+  <div class="guide-links">
+    <button onclick="show('questions');toggleGuide()">❓ I have a question</button>
+    <button onclick="show('profile');toggleGuide()">👤 I want to introduce myself</button>
+    <button onclick="show('services');toggleGuide()">✨ I want to see the services</button>
+    <button onclick="show('mentor');toggleGuide()">🤝 I want a mentor</button>
+    <button onclick="show('why');toggleGuide()">💛 I want to join The Penguins</button>
+  </div>
+</div>
+
+
+</div>
+
+<script>
+const WA="94757218921";
+const screens=["home","questions","detail","profile","why","services","mentor"];
+
+function toggleGuide(e){
+ if(e) e.stopPropagation();
+ document.getElementById('guidePanel').classList.toggle('show');
+}
+function show(id){
+ screens.forEach(s=>document.getElementById(s)?.classList.remove("active"));
+
+ document.getElementById(id).classList.add("active");
+ document.querySelectorAll(".bottom button").forEach(b=>b.classList.remove("active"));
+ window.scrollTo(0,0);
+}
+const data={
+ career:{icon:"🎓",title:"What career is right for me?",intro:"Instead of looking for one perfect answer, explore the clues that can point you toward a good direction.",qs:["What subjects or activities make you lose track of time?","Which skills do people often ask you to help with?","Do you prefer creating, analysing, helping, leading or communicating?","What kind of problems would you enjoy solving?","What matters most to you in a future workplace?"],pers:"A career can be discovered through experiments, conversations and experience—not just one decision.",chips:["Curiosity","Strengths","Values","Skills"]},
+ confidence:{icon:"💡",title:"How can I become more confident?",intro:"Confidence is not about never feeling nervous. It can grow when you repeatedly take manageable steps.",qs:["What situation makes you feel least confident?","What is one thing you already do well?","What small challenge could you try this week?","How would you speak to a friend who made a mistake?","What evidence do you have that you can improve?"],pers:"Focus on progress and practice rather than trying to appear perfect.",chips:["Small steps","Strengths","Practice","Self-talk"]},
+ potential:{icon:"🚀",title:"How do I discover my potential?",intro:"Potential often becomes visible when curiosity meets action.",qs:["What are you naturally curious about?","Which activity would you try even without being graded?","What skill have you improved through practice?","What challenge would you like to become better at?","What feedback from others has surprised you?"],pers:"You do not have to know your full potential today. Explore, test and learn.",chips:["Curiosity","Experiment","Skills","Growth"]},
+ speaking:{icon:"🎤",title:"How can I improve my speaking?",intro:"Good communication is a skill that becomes stronger with deliberate practice.",qs:["Which part of speaking feels hardest?","Who is a speaker you admire and why?","Can you explain one idea clearly in 30 seconds?","What happens when you focus on the message instead of yourself?","Where could you practise speaking safely and regularly?"],pers:"Clear communication grows from practice, preparation and genuine connection.",chips:["Practice","Clarity","Listening","Confidence"]},
+ purpose:{icon:"🌍",title:"How can I make an impact?",intro:"Impact does not have to begin with something huge. It can begin with one useful action.",qs:["What problem around you genuinely bothers you?","Who could benefit from your skills?","What small action could you take this month?","What idea have you had but never tested?","How could other people help you turn it into action?"],pers:"Curiosity becomes impact when an idea is tested and turned into something useful.",chips:["Question","Imagine","Collaborate","Act"]},
+ study:{icon:"📚",title:"How can I study smarter?",intro:"Better learning is often about how you study, not simply how long you study.",qs:["Which study method helps you remember best?","What distracts you most while studying?","Can you explain a topic without looking at your notes?","What is one realistic study goal for today?","How can you turn a difficult topic into smaller questions?"],pers:"Active recall, practice and focused sessions can make learning more meaningful.",chips:["Focus","Practice","Recall","Consistency"]}
+};
+function openQuestion(key){
+ const d=data[key]; document.getElementById("dicon").textContent=d.icon;
+ document.getElementById("dtitle").textContent=d.title; document.getElementById("dintro").textContent=d.intro;
+ document.getElementById("dperspective").textContent=d.pers;
+ document.getElementById("subquestions").innerHTML=d.qs.map((q,i)=>`<div class="card"><h3 style="font-size:17px">${i+1}. ${q}</h3><textarea placeholder="Your reflection..."></textarea></div>`).join("");
+ document.getElementById("chips").innerHTML=d.chips.map(x=>`<span class="answer-chip">${x}</span>`).join("");
+ show("detail");
+}
+function contact(topic){
+ const msg=`Hello Senithi! 🐧%0A%0AI would like to ask about: ${encodeURIComponent(topic)}.%0A%0AMy question/message:%0A`;
+ window.open(`https://wa.me/${WA}?text=${msg}`,"_blank");
+}
+function formText(title, pairs){
+ return title+"%0A%0A"+pairs.map(([k,v])=>`${k}: ${encodeURIComponent(v||"Not answered")}`).join("%0A%0A");
+}
+document.getElementById("profileForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ const msg=formText("🐧 THE PENGUINS — MY PROFILE",[
+ ["Name",pname.value],["Age",page.value],["Education",pedu.value],["Skill",pskill.value],["Hobby",phobby.value],["Curious about",pcurious.value],["About me",pabout.value]]);
+ window.open(`https://wa.me/${WA}?text=${msg}`,"_blank"); document.getElementById("pstatus").style.display="block";
+});
+document.getElementById("whyForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ const msg=formText("🐧 THE PENGUINS — WHY I CHOSE THE PENGUINS",[
+ ["Why I chose The Penguins",wchoose.value],["How I contribute to curiosity",wcuriosity.value],["Idea for the community",widea.value],["How I could help another Penguin",whelp.value],["What I want to learn",wlearn.value],["I am a Penguin because",wpenguin.value]]);
+ window.open(`https://wa.me/${WA}?text=${msg}`,"_blank"); document.getElementById("wstatus").style.display="block";
+});
+</script>
+</body>
+</html>
