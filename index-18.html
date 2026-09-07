@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- WhatsApp / Facebook link preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="THE PENGUINS — Think Freely. Dream Boldly. Make an Impact.">
+  <meta property="og:description" content="A student-led community for curious minds — explore ideas, develop skills, ask meaningful questions, and grow through learning, mentorship and connection. 🐧">
+  <meta property="og:image" content="https://silvasenithidewapriya-stack.github.io/The-penguins-website/penguins-preview.png">
+  <meta property="og:image:alt" content="Professor Penguin — THE PENGUINS">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://silvasenithidewapriya-stack.github.io/The-penguins-website/">
+  <meta property="og:site_name" content="THE PENGUINS">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="THE PENGUINS — Think Freely. Dream Boldly. Make an Impact.">
+  <meta name="twitter:description" content="A student-led community for curious minds. 🐧">
+  <meta name="twitter:image" content="https://silvasenithidewapriya-stack.github.io/The-penguins-website/penguins-preview.png">
+
+<meta name="description" content="THE PENGUINS — Think Freely. Dream Boldly. Make an Impact.">
+<title>THE PENGUINS — Professional Community</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#031a45;
+  --navy2:#05265f;
+  --blue:#064ed8;
+  --blue2:#0b63f6;
+  --yellow:#e9c51a;
+  --yellow2:#ffd92f;
+  --white:#f7faff;
+  --muted:#b9c7df;
+  --line:rgba(255,255,255,.12);
+  --card:rgba(8,43,96,.78);
+  --shadow:0 24px 70px rgba(0,0,0,.28);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--white);
+  font-family:Inter,system-ui,sans-serif;
+  background:
+    radial-gradient(circle at 85% 5%,rgba(11,99,246,.25),transparent 28rem),
+    radial-gradient(circle at 10% 40%,rgba(233,197,26,.07),transparent 24rem),
+    linear-gradient(145deg,#021333 0%,#031a45 48%,#05265f 100%);
+  min-height:100vh;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.28;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:42px 42px;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.container{width:min(1160px,92%);margin:auto}
+.nav{
+  position:sticky;top:0;z-index:30;
+  backdrop-filter:blur(18px);
+  background:rgba(2,19,51,.78);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;font-family:Manrope;font-weight:800;letter-spacing:.06em}
+.brand-mark{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--yellow);color:#071a3b;font-size:22px;box-shadow:0 8px 25px rgba(233,197,26,.22)}
+.nav-links{display:flex;gap:8px;flex-wrap:wrap}
+.nav-links a{padding:10px 13px;border-radius:9px;color:#dce6f8;font-size:13px;font-weight:600}
+.nav-links a:hover{background:rgba(255,255,255,.07);color:white}
+.hero{padding:100px 0 80px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--yellow2);font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.eyebrow:before{content:"";width:28px;height:2px;background:var(--yellow2)}
+h1,h2,h3{font-family:Manrope;margin:0}
+h1{font-size:clamp(46px,7vw,82px);line-height:.96;letter-spacing:-.055em;margin:20px 0}
+h1 span{color:var(--yellow2)}
+.hero p{max-width:650px;color:var(--muted);font-size:18px;line-height:1.8}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{border:1px solid var(--line);padding:13px 18px;border-radius:10px;font-weight:700;cursor:pointer;transition:.2s}
+.btn-primary{background:var(--yellow);color:#071a3b;border-color:var(--yellow)}
+.btn-primary:hover{background:var(--yellow2);transform:translateY(-2px)}
+.btn-outline{background:rgba(255,255,255,.04);color:white}
+.btn-outline:hover{background:rgba(255,255,255,.09);transform:translateY(-2px)}
+.hero-card{border:1px solid var(--line);background:linear-gradient(160deg,rgba(11,99,246,.24),rgba(3,26,69,.75));border-radius:24px;padding:34px;box-shadow:var(--shadow)}
+.hero-card .big{font-size:82px}
+.hero-card h3{font-size:24px;margin:12px 0}
+.hero-card p{font-size:14px;line-height:1.7;margin:0}
+.section{padding:76px 0}
+.section-head{margin-bottom:28px}
+.section-head h2{font-size:clamp(30px,4vw,46px);letter-spacing:-.04em}
+.section-head p{color:var(--muted);line-height:1.7;max-width:700px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:24px;box-shadow:0 15px 45px rgba(0,0,0,.12);transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:rgba(233,197,26,.4)}
+.icon{font-size:25px;margin-bottom:17px}
+.card h3{font-size:19px;margin-bottom:9px}
+.card p{color:var(--muted);font-size:14px;line-height:1.7;margin:0 0 18px}
+.small-btn{display:inline-block;color:var(--yellow2);font-size:13px;font-weight:800}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.contact-card{padding:30px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(135deg,rgba(11,99,246,.22),rgba(255,255,255,.035))}
+.contact-card h3{font-size:24px;margin-bottom:10px}
+.contact-card p{color:var(--muted);line-height:1.7}
+.contact-number{font-size:27px;font-family:Manrope;font-weight:800;color:var(--yellow2);display:block;margin:18px 0}
+footer{border-top:1px solid var(--line);padding:30px 0;color:#94a8c9;font-size:13px}
+.drag-penguin{
+  position:fixed;left:24px;bottom:24px;width:76px;height:76px;z-index:1000;
+  display:grid;place-items:center;border-radius:24px;
+  background:linear-gradient(145deg,var(--yellow2),var(--yellow));
+  color:#061a3d;font-size:42px;cursor:grab;
+  box-shadow:0 16px 42px rgba(0,0,0,.4);
+  user-select:none;touch-action:none;
+}
+.drag-penguin:active{cursor:grabbing;transform:scale(.97)}
+.drag-label{
+  position:fixed;left:26px;bottom:107px;z-index:999;
+  background:#021333;border:1px solid var(--line);padding:8px 11px;border-radius:8px;
+  color:#dbe7fa;font-size:11px;opacity:.9;pointer-events:none
+}
+.modal{display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,8,25,.78);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}
+.modal-box{width:min(520px,100%);background:#061d49;border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:var(--shadow)}
+.modal-box h2{margin-bottom:12px}
+.modal-box p{color:var(--muted);line-height:1.7}
+.close{float:right;border:0;background:rgba(255,255,255,.08);color:white;border-radius:8px;padding:7px 10px;cursor:pointer}
+@media(max-width:800px){
+  .nav-links{display:none}
+  .hero{padding-top:65px}
+  .hero-grid,.contact{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}
+  .hero-card{order:-1}
+  h1{font-size:52px}
+}
+
+.problem-card button{border:0;margin-top:3px;font-size:12px;padding:10px 14px}
+.answer-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:18px}
+.answer-btn{border:1px solid var(--line);background:rgba(255,255,255,.045);color:#eaf1ff;padding:13px;border-radius:10px;text-align:left;cursor:pointer;font-weight:600;font-size:13px;transition:.2s}
+.answer-btn:hover{background:rgba(233,197,26,.12);border-color:rgba(233,197,26,.45);transform:translateY(-2px)}
+.question-step{display:none}
+.question-step.active{display:block}
+.step-kicker{font-size:11px;text-transform:uppercase;letter-spacing:.13em;color:var(--yellow2);font-weight:800}
+.answer-result{margin-top:20px;padding:18px;border-radius:13px;background:rgba(11,99,246,.18);border:1px solid rgba(255,255,255,.1)}
+.answer-result strong{display:block;font-family:Manrope;font-size:17px;margin-bottom:7px;color:white}
+.answer-result span{color:var(--muted);font-size:13px;line-height:1.65}
+.back-btn{background:transparent;border:0;color:#b9c7df;cursor:pointer;padding:0;margin-top:18px;font-weight:700}
+@media(max-width:600px){.answer-grid{grid-template-columns:1fr}}
+
+.form-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px}
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+.field label{font-size:12px;font-weight:800;color:#dce7f8}
+.field input,.field select,.field textarea{
+  width:100%;border:1px solid var(--line);background:rgba(0,10,35,.42);color:white;
+  border-radius:10px;padding:12px 13px;outline:none;font:inherit;font-size:14px
+}
+.field textarea{min-height:95px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:rgba(233,197,26,.65);box-shadow:0 0 0 3px rgba(233,197,26,.08)}
+.choice-section{margin-top:28px}
+.choice-question{font-family:Manrope;font-size:19px;margin-bottom:12px}
+.choice-options{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.choice-option{border:1px solid var(--line);background:rgba(255,255,255,.045);color:#eaf1ff;padding:14px;border-radius:11px;text-align:left;cursor:pointer;font-weight:600;transition:.2s}
+.choice-option:hover,.choice-option.selected{background:rgba(233,197,26,.13);border-color:rgba(233,197,26,.55)}
+.choice-option small{display:block;color:#94a8c9;font-weight:400;margin-top:5px;line-height:1.45}
+.join-summary{display:none;margin-top:20px;padding:18px;border-radius:13px;background:rgba(11,99,246,.16);border:1px solid var(--line)}
+.join-summary strong{display:block;font-family:Manrope;margin-bottom:8px}
+.notice{font-size:12px;color:#94a8c9;line-height:1.6;margin-top:12px}
+.submit-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.section-divider{height:1px;background:var(--line);margin:45px 0}
+@media(max-width:650px){.form-grid,.choice-options{grid-template-columns:1fr}.field.full{grid-column:auto}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#"><span class="brand-mark">🐧</span>THE PENGUINS</a>
+    <nav class="nav-links">
+      <a href="#explore">Explore</a>
+      <a href="#services">Services</a>
+      <a href="#community">Community</a>
+      <a href="#introduce">Introduce</a><a href="#join">Join</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">A community for curious minds</div>
+      <h1>Think freely.<br><span>Dream boldly.</span><br>Make an impact.</h1>
+      <p>THE PENGUINS is a professional community for people who want to explore ideas, develop skills, ask meaningful questions and grow through learning, mentorship and connection.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#explore">Explore The Penguins</a>
+        <a class="btn btn-outline" href="https://chat.whatsapp.com/IOxnCjawEJvHiYDpEAiAsf" target="_blank" rel="noopener">Join Community</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="big">🐧</div>
+      <h3>Professional guidance. Human connection.</h3>
+      <p>Explore psychology, philosophy, communication, potential, learning and mentorship in one focused community.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="explore">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Question Board</div>
+      <h2>Choose a challenge. Find a direction.</h2>
+      <p>Tap a common challenge to explore a few simple questions. Your choices lead to practical, educational tips — not diagnoses or professional treatment.</p>
+    </div>
+
+    <div class="grid">
+      <article class="card problem-card" data-problem="selfcriticism">
+        <div class="icon">🪞</div><h3>Self-Criticism</h3>
+        <p>When your inner voice becomes much harsher than the way you would speak to someone else.</p>
+        <button class="btn btn-primary open-problem">Explore →</button>
+      </article>
+
+      <article class="card problem-card" data-problem="presentation">
+        <div class="icon">🎤</div><h3>Presentation Skills</h3>
+        <p>Feeling stuck, nervous or unsure when you have to speak in front of others.</p>
+        <button class="btn btn-primary open-problem">Explore →</button>
+      </article>
+
+      <article class="card problem-card" data-problem="socialanxiety">
+        <div class="icon">🤝</div><h3>Social Anxiety</h3>
+        <p>Worrying about conversations, meeting people or being judged in social situations.</p>
+        <button class="btn btn-primary open-problem">Explore →</button>
+      </article>
+
+      <article class="card problem-card" data-problem="confidence">
+        <div class="icon">💡</div><h3>Low Confidence</h3>
+        <p>Second-guessing yourself and finding it difficult to trust your own abilities.</p>
+        <button class="btn btn-primary open-problem">Explore →</button>
+      </article>
+
+      <article class="card problem-card" data-problem="motivation">
+        <div class="icon">🚀</div><h3>Motivation</h3>
+        <p>Knowing what you want to do, but struggling to begin or stay consistent.</p>
+        <button class="btn btn-primary open-problem">Explore →</button>
+      </article>
+
+      <article class="card problem-card" data-problem="studying">
+        <div class="icon">📚</div><h3>Study Pressure</h3>
+        <p>Feeling overwhelmed by schoolwork, deadlines or the pressure to perform.</p>
+        <button class="btn btn-primary open-problem">Explore →</button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">What We Offer</div>
+      <h2>Structured opportunities to grow.</h2>
+    </div>
+    <div class="grid">
+      <article class="card"><div class="icon">🧠</div><h3>Psychology Sessions</h3><p>Educational sessions exploring psychology, confidence, communication and self-development.</p></article>
+      <article class="card"><div class="icon">💭</div><h3>Philosophy & Big Ideas</h3><p>Explore thought experiments, paradoxes, curiosity and questions that challenge ordinary thinking.</p></article>
+      <article class="card"><div class="icon">🎤</div><h3>Speaking & Presentation</h3><p>Build self-introduction, speaking, presentation and communication skills.</p></article>
+      <article class="card"><div class="icon">🚀</div><h3>Potential & Skills</h3><p>Use reflection and activities to identify strengths, interests and skills to develop.</p></article>
+      <article class="card"><div class="icon">🤝</div><h3>Mentorship</h3><p>Have a question or personal-development goal? Reach out and discuss how a mentor can guide you.</p><a class="small-btn" href="https://wa.me/94757218921?text=Hi%20THE%20PENGUINS%2C%20I%20would%20like%20to%20ask%20about%20mentorship." target="_blank" rel="noopener">Contact a Mentor →</a></article>
+      <article class="card" id="community"><div class="icon">🌐</div><h3>Penguins Community</h3><p>Join the WhatsApp community for ideas, questions, workshops and learning opportunities.</p><a class="small-btn" href="https://chat.whatsapp.com/IOxnCjawEJvHiYDpEAiAsf" target="_blank" rel="noopener">Join WhatsApp →</a></article>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="introduce">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Member Introduction</div>
+      <h2>Tell THE PENGUINS about you.</h2>
+      <p>Introduce yourself in a simple format. When you submit, the details open in WhatsApp so you can review them before sending.</p>
+    </div>
+
+    <div class="form-card">
+      <div class="form-grid">
+        <div class="field"><label for="memberName">Name</label><input id="memberName" type="text" placeholder="Your name"></div>
+        <div class="field"><label for="memberAge">Age</label><input id="memberAge" type="number" min="1" max="100" placeholder="Your age"></div>
+        <div class="field"><label for="memberEducation">Education level</label><input id="memberEducation" type="text" placeholder="e.g. Grade 12 / A/L / University"></div>
+        <div class="field"><label for="memberHobby">Hobby / interests</label><input id="memberHobby" type="text" placeholder="What do you enjoy?"></div>
+        <div class="field full"><label for="memberSkills">Skills</label><input id="memberSkills" type="text" placeholder="e.g. public speaking, design, ICT, writing"></div>
+        <div class="field full"><label for="memberAbout">Anything else you'd like us to know?</label><textarea id="memberAbout" placeholder="A short introduction..."></textarea></div>
+      </div>
+
+      <div class="submit-row">
+        <button class="btn btn-primary" id="submitIntro">🐧 Submit Introduction on WhatsApp</button>
+      </div>
+      <div class="notice">Privacy tip: only share information you're comfortable sending. Your message is sent through WhatsApp and is not stored by this webpage.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="join">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Penguins Membership</div>
+      <h2>Why do you want to be a Penguin?</h2>
+      <p>Choose the answers that best describe you. You can review your selections and submit them to THE PENGUINS through WhatsApp.</p>
+    </div>
+
+    <div class="form-card">
+      <div class="choice-section">
+        <div class="choice-question">1. Why did you choose THE PENGUINS?</div>
+        <div class="choice-options" data-choice-group="why">
+          <button class="choice-option" data-value="I want to learn and explore new ideas.">🧠 Learn & explore<small>I enjoy discovering ideas and gaining knowledge.</small></button>
+          <button class="choice-option" data-value="I want to develop my skills and confidence.">🚀 Develop myself<small>I want to improve skills and grow through experience.</small></button>
+          <button class="choice-option" data-value="I want to meet people with similar interests.">🤝 Connect with others<small>I want to learn with people who are curious and motivated.</small></button>
+          <button class="choice-option" data-value="I want to contribute to something meaningful.">🌟 Make an impact<small>I want to use my ideas and abilities in a positive way.</small></button>
+        </div>
+      </div>
+
+      <div class="choice-section">
+        <div class="choice-question">2. How would you like to contribute?</div>
+        <div class="choice-options" data-choice-group="contribute">
+          <button class="choice-option" data-value="By sharing ideas and educational content.">💡 Share ideas<small>Bring useful topics, ideas, resources or discussions.</small></button>
+          <button class="choice-option" data-value="By helping with events, workshops and activities.">🎤 Help with programmes<small>Support events, sessions and community activities.</small></button>
+          <button class="choice-option" data-value="By using my creative or technical skills.">🎨 Use my skills<small>Contribute through design, ICT, writing, media or other skills.</small></button>
+          <button class="choice-option" data-value="By supporting and encouraging other members.">🤝 Support members<small>Help create a welcoming and positive community.</small></button>
+        </div>
+      </div>
+
+      <div class="choice-section">
+        <div class="choice-question">3. What do you hope to gain from THE PENGUINS?</div>
+        <div class="choice-options" data-choice-group="gain">
+          <button class="choice-option" data-value="Knowledge and new perspectives.">📚 Knowledge<small>Explore subjects and see ideas from different perspectives.</small></button>
+          <button class="choice-option" data-value="Confidence and communication skills.">🎯 Confidence<small>Develop communication, presentation and social skills.</small></button>
+          <button class="choice-option" data-value="Experience working with a community.">🌐 Experience<small>Learn how projects and communities work through participation.</small></button>
+          <button class="choice-option" data-value="A place to turn ideas into action.">⚡ Action<small>Take ideas and turn them into useful projects or activities.</small></button>
+        </div>
+      </div>
+
+      <div class="choice-section">
+        <div class="choice-question">4. What kind of Penguin do you want to be?</div>
+        <div class="choice-options" data-choice-group="type">
+          <button class="choice-option" data-value="A curious learner who asks questions.">🔎 Curious learner<small>Question, explore and keep learning.</small></button>
+          <button class="choice-option" data-value="A creator who turns ideas into projects.">🛠️ Creator<small>Build, design and turn ideas into something real.</small></button>
+          <button class="choice-option" data-value="A communicator who helps people connect.">🎙️ Communicator<small>Share ideas clearly and bring people together.</small></button>
+          <button class="choice-option" data-value="A contributor who helps the community grow.">🌟 Contributor<small>Support projects and help the community move forward.</small></button>
+        </div>
+      </div>
+
+      <div class="join-summary" id="joinSummary">
+        <strong>Your Penguins profile choices</strong>
+        <div id="summaryText"></div>
+      </div>
+
+      <div class="submit-row">
+        <button class="btn btn-primary" id="submitJoin">📩 Submit My Penguins Profile on WhatsApp</button>
+        <button class="btn btn-outline" id="clearJoin">Reset Choices</button>
+      </div>
+      <div class="notice">Your choices are placed into a WhatsApp message for you to review before sending. The webpage itself does not store your answers.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Contact</div>
+      <h2>Connect with THE PENGUINS.</h2>
+      <p>For questions, mentorship enquiries, programmes or community information, use the options below.</p>
+    </div>
+    <div class="contact">
+      <div class="contact-card">
+        <h3>Direct WhatsApp</h3>
+        <p>Send a message directly to THE PENGUINS.</p>
+        <a class="contact-number" href="https://wa.me/94757218921" target="_blank" rel="noopener">075 721 8921</a>
+        <a class="btn btn-primary" href="https://wa.me/94757218921" target="_blank" rel="noopener">Message on WhatsApp →</a>
+      </div>
+      <div class="contact-card">
+        <h3>Community</h3>
+        <p>Join the wider THE PENGUINS community and stay connected with activities and opportunities.</p>
+        <a class="btn btn-primary" href="https://chat.whatsapp.com/IOxnCjawEJvHiYDpEAiAsf" target="_blank" rel="noopener">Join the Community →</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+
+<div class="modal" id="problemModal" role="dialog" aria-modal="true" aria-labelledby="problemTitle">
+  <div class="modal-box">
+    <button class="close" id="closeProblem">✕</button>
+    <div class="step-kicker">Penguins Quick Guide</div>
+    <h2 id="problemTitle" style="margin-top:8px"></h2>
+
+    <div class="question-step active" id="step1">
+      <p id="problemIntro"></p>
+      <h3 id="question1" style="margin-top:22px"></h3>
+      <div class="answer-grid" id="answers1"></div>
+    </div>
+
+    <div class="question-step" id="step2">
+      <p>One more question can help narrow the situation.</p>
+      <h3 id="question2" style="margin-top:22px"></h3>
+      <div class="answer-grid" id="answers2"></div>
+      <button class="back-btn" id="backStep">← Back</button>
+    </div>
+
+    <div class="answer-result" id="result" style="display:none"></div>
+    <button class="btn btn-primary" id="resetProblem" style="display:none;margin-top:15px">Try another answer</button>
+  </div>
+</div>
+
+<footer>
+  <div class="container">© 2026 THE PENGUINS · Think Freely. Dream Boldly. Make an Impact.</div>
+</footer>
+
+<div class="drag-label" id="dragLabel">Drag Professor Penguin anywhere</div>
+<div class="drag-penguin" id="penguin" aria-label="Draggable Professor Penguin" title="Drag me anywhere">🐧</div>
+
+<script>
+const penguin=document.getElementById('penguin');
+const label=document.getElementById('dragLabel');
+let dragging=false, offsetX=0, offsetY=0;
+
+penguin.addEventListener('pointerdown', e=>{
+  dragging=true;
+  const r=penguin.getBoundingClientRect();
+  offsetX=e.clientX-r.left; offsetY=e.clientY-r.top;
+  penguin.setPointerCapture(e.pointerId);
+  label.style.display='none';
+});
+penguin.addEventListener('pointermove', e=>{
+  if(!dragging) return;
+  const x=Math.max(6,Math.min(window.innerWidth-penguin.offsetWidth-6,e.clientX-offsetX));
+  const y=Math.max(82,Math.min(window.innerHeight-penguin.offsetHeight-6,e.clientY-offsetY));
+  penguin.style.left=x+'px';
+  penguin.style.top=y+'px';
+  penguin.style.right='auto';
+  penguin.style.bottom='auto';
+});
+penguin.addEventListener('pointerup',()=>dragging=false);
+penguin.addEventListener('pointercancel',()=>dragging=false);
+setTimeout(()=>label.style.opacity='0',5000);
+
+const problemData = {
+  selfcriticism:{
+    title:"Self-Criticism",
+    intro:"A useful first step is noticing whether your thoughts are facts, interpretations, or unusually harsh judgments.",
+    q1:"When you make a mistake, what happens most often?",
+    a1:[
+      ["I replay it again and again.","replay"],
+      ["I immediately blame myself.","blame"],
+      ["I compare myself with others.","compare"],
+      ["I try to ignore it completely.","avoid"]
+    ],
+    q2:{
+      replay:"What would help you respond more fairly?",
+      blame:"Which thought sounds more balanced?",
+      compare:"What could you focus on instead?",
+      avoid:"What small action could help you process it?"
+    },
+    a2:{
+      replay:[["Write down what actually happened.","facts"],["Ask what you can learn.","learn"],["Talk to someone you trust.","talk"],["Give yourself time before judging.","pause"]],
+      blame:[["A mistake does not define me.","identity"],["I can correct what is changeable.","action"],["Everyone makes mistakes.","normal"],["I can speak to myself with fairness.","kind"]],
+      compare:[["Compare with your past self.","progress"],["Focus on one skill to improve.","skill"],["Limit unhelpful comparisons.","boundary"],["Notice what you already do well.","strength"]],
+      avoid:[["Name the feeling without judging it.","notice"],["Write one sentence about it.","write"],["Take one practical next step.","action"],["Ask for support if it keeps bothering you.","support"]]
+    },
+    results:{
+      facts:"Tip: Separate the event from the story you tell yourself about it. Write the facts first.",
+      learn:"Tip: Ask, “What can this experience teach me?” Learning is more useful than repeatedly attacking yourself.",
+      talk:"Tip: A trusted person can sometimes give you a more balanced perspective than your inner critic.",
+      pause:"Tip: You do not need to solve every feeling immediately. Pause, then return to the situation calmly.",
+      identity:"Tip: A mistake is an event, not a complete description of who you are.",
+      action:"Tip: Put your attention on the part you can actually change or practise.",
+      normal:"Tip: Mistakes are a normal part of learning new things.",
+      kind:"Tip: Try using the same respectful tone you would use with a friend who made the same mistake.",
+      progress:"Tip: Your own progress is often a more useful comparison than someone else’s highlight reel.",
+      skill:"Tip: Pick one specific skill instead of treating yourself as a whole “problem.”",
+      boundary:"Tip: Reducing unhelpful comparison can protect your attention and confidence.",
+      strength:"Tip: Balanced self-reflection includes strengths as well as areas to improve.",
+      notice:"Tip: Naming an emotion can make it easier to think about what you need next.",
+      write:"Tip: A short written reflection can turn a vague worry into something specific and manageable.",
+      support:"Tip: If a problem is persistent or seriously affecting daily life, talking to a trusted adult or qualified professional can help."
+    }
+  },
+  presentation:{
+    title:"Presentation Skills",
+    intro:"Presentation confidence usually grows through preparation and repeated, manageable practice — not by waiting until you feel perfectly confident.",
+    q1:"Which part feels hardest?",
+    a1:[["Starting the presentation.","start"],["Remembering what to say.","memory"],["Speaking clearly.","clear"],["Looking at the audience.","audience"]],
+    q2:{start:"What would make the opening easier?",memory:"What can reduce the pressure to remember everything?",clear:"What is one speaking habit to practise?",audience:"What can you try instead of staring at the floor?"},
+    a2:{
+      start:[["Memorise your first two sentences.","opening"],["Start with a simple question.","question"],["Take one slow breath first.","breath"],["Practise the opening aloud.","practice"]],
+      memory:[["Use short cue words.","cues"],["Organise 3 main points.","three"],["Understand ideas rather than memorising paragraphs.","understand"],["Practise transitions between points.","transition"]],
+      clear:[["Slow down slightly.","slow"],["Pause between ideas.","pause"],["Speak to the back of the room.","project"],["Record one practice and review it.","record"]],
+      audience:[["Look at friendly faces briefly.","friendly"],["Move your gaze across the room.","scan"],["Look near people’s eye level.","level"],["Practise with one person first.","oneperson"]]
+    },
+    results:{
+      opening:"Tip: A prepared opening reduces the hardest few seconds. Keep it short and natural.",
+      question:"Tip: A simple question can create a clear reason for the audience to listen.",
+      breath:"Tip: One slow breath before starting can give you a moment to settle and begin deliberately.",
+      practice:"Tip: Rehearsing the opening aloud helps it feel familiar without making the whole presentation scripted.",
+      cues:"Tip: Cue words are easier to remember than full paragraphs and leave room for natural speaking.",
+      three:"Tip: A simple three-point structure can make a presentation easier to follow and easier to remember.",
+      understand:"Tip: Understanding the idea gives you more flexibility if you forget an exact sentence.",
+      transition:"Tip: Practise the sentences that connect your main points; transitions often make speaking feel smoother.",
+      slow:"Tip: Speaking a little slower can improve clarity and give your brain more time to organise thoughts.",
+      pause:"Tip: Pauses are useful. They can separate ideas and make important points easier to follow.",
+      project:"Tip: Aim your voice toward the back of the room rather than forcing yourself to speak loudly.",
+      record:"Tip: Review one practice recording and choose just one thing to improve next time.",
+      friendly:"Tip: Briefly looking at supportive faces can feel easier while you build confidence.",
+      scan:"Tip: Gently moving your gaze around the room helps the audience feel included.",
+      level:"Tip: Looking near eye level can be a comfortable middle ground while you practise direct eye contact.",
+      oneperson:"Tip: Practising first with one trusted person can make the jump to a larger audience feel more manageable."
+    }
+  },
+  socialanxiety:{
+    title:"Social Anxiety",
+    intro:"Social nervousness is common. A helpful approach is to focus on small, realistic actions instead of demanding instant confidence.",
+    q1:"Which situation makes you most uncomfortable?",
+    a1:[["Starting a conversation.","conversation"],["Speaking in a group.","group"],["Meeting someone new.","new"],["Worrying about being judged.","judged"]],
+    q2:{conversation:"What is a simple first step?",group:"What can make group speaking easier?",new:"What could you ask the other person?",judged:"What can you remind yourself?"},
+    a2:{
+      conversation:[["Ask an easy open question.","ask"],["Comment on something happening around you.","comment"],["Say hello and introduce yourself.","hello"],["Practise with someone you know.","known"]],
+      group:[["Prepare one point beforehand.","point"],["Speak once, even briefly.","once"],["Write a keyword to remember.","keyword"],["Listen first and join when ready.","listen"]],
+      new:[["Ask about a shared activity.","activity"],["Ask an easy interest question.","interest"],["Ask how they know the group.","groupquestion"],["Offer a simple introduction first.","intro"]],
+      judged:[["People are usually focused on themselves too.","self"],["I do not need everyone’s approval.","approval"],["A pause does not mean failure.","pausejudged"],["I can take one small step.","smallstep"]]
+    },
+    results:{
+      ask:"Tip: Open questions give the other person something easy to respond to and take pressure off you.",
+      comment:"Tip: Using your surroundings gives you a natural starting point instead of searching for a perfect topic.",
+      hello:"Tip: A simple greeting and introduction is enough. You do not need a perfect opening.",
+      known:"Tip: Practising with familiar people can help you build confidence gradually.",
+      point:"Tip: Preparing one point gives you a clear target instead of feeling that you must talk constantly.",
+      once:"Tip: One small contribution counts. Confidence can grow through repeated manageable experiences.",
+      keyword:"Tip: A single keyword can help you remember your idea without scripting your whole response.",
+      listen:"Tip: Listening is also participation. You can take time to understand the conversation before joining in.",
+      activity:"Tip: Shared activities give you an easy topic because you already have something in common.",
+      interest:"Tip: Genuine curiosity can make conversations feel more natural.",
+      groupquestion:"Tip: Asking how someone knows the group is a simple, low-pressure conversation starter.",
+      intro:"Tip: A short introduction is enough; the conversation can develop from there.",
+      self:"Tip: You may be overestimating how much attention other people are paying to every small detail.",
+      approval:"Tip: Healthy social confidence is not about being liked by everyone.",
+      pausejudged:"Tip: A pause is normal in conversation and does not automatically mean you did something wrong.",
+      smallstep:"Tip: Choose a tiny social action you can repeat rather than trying to eliminate nervousness all at once."
+    }
+  },
+  confidence:{
+    title:"Low Confidence",
+    intro:"Confidence can be developed through evidence: small actions, practice and noticing what you are capable of.",
+    q1:"Where do you notice it most?",
+    a1:[["School or studies.","school"],["Speaking to others.","speaking"],["Trying new things.","newthings"],["Making decisions.","decisions"]],
+    q2:{school:"What could you build first?",speaking:"What could you practise?",newthings:"How can you make the challenge smaller?",decisions:"What can help you decide?"},
+    a2:{
+      school:[["Set one realistic study target.","target"],["Track small improvements.","track"],["Ask for help with one topic.","help"],["Review what you already understand.","understandschool"]],
+      speaking:[["Practise a short introduction.","introconf"],["Ask one question in class/group.","questionconf"],["Speak a little slower.","slowconf"],["Practise with a trusted person.","trusted"]],
+      newthings:[["Break it into the first 5-minute action.","five"],["Try a beginner version.","beginner"],["Go with someone supportive.","supportive"],["Treat the first attempt as practice.","attempt"]],
+      decisions:[["List two realistic options.","options"],["Write pros and cons.","pros"],["Choose based on your priorities.","priorities"],["Set a time to decide.","time"]]
+    },
+    results:{
+      target:"Tip: A specific target creates evidence that you can take action.",
+      track:"Tip: Tracking small improvements can make progress easier to notice.",
+      help:"Tip: Asking for help is a learning skill, not proof that you cannot do something.",
+      understandschool:"Tip: Start from what you know, then build outward.",
+      introconf:"Tip: A short introduction is a useful low-pressure way to practise speaking.",
+      questionconf:"Tip: One question is enough to create a repeated opportunity to speak.",
+      slowconf:"Tip: Clear, deliberate speech can make you feel more in control.",
+      trusted:"Tip: A supportive practice partner can give you useful feedback.",
+      five:"Tip: The first small action is often easier than imagining the entire challenge.",
+      beginner:"Tip: A beginner version lets you practise without requiring immediate mastery.",
+      supportive:"Tip: Support can make a new experience feel more manageable.",
+      attempt:"Tip: Treat early attempts as practice rather than a final test of your ability.",
+      options:"Tip: Reducing a decision to a few realistic options can make it less overwhelming.",
+      pros:"Tip: Writing things down can turn a vague decision into something you can compare.",
+      priorities:"Tip: Decisions are easier when you know what matters most to you.",
+      time:"Tip: A decision deadline can prevent endless second-guessing."
+    }
+  },
+  motivation:{
+    title:"Motivation",
+    intro:"Motivation is not always present before action. Sometimes a small start creates momentum.",
+    q1:"What usually gets in the way?",
+    a1:[["I keep postponing.","postpone"],["The task feels too big.","big"],["I get distracted.","distract"],["I lose interest quickly.","interestloss"]],
+    q2:{postpone:"What can you change first?",big:"How can you shrink the task?",distract:"What could protect your focus?",interestloss:"What can make progress visible?"},
+    a2:{
+      postpone:[["Choose a 5-minute start.","fiveMot"],["Set a specific start time.","timeMot"],["Put the first step in writing.","writeMot"],["Remove one easy distraction.","remove"]],
+      big:[["Break it into three steps.","threeMot"],["Do only the first section.","first"],["Set a short timer.","timer"],["Ask what “done for today” means.","done"]],
+      distract:[["Put the phone away for one short block.","phone"],["Close unrelated tabs.","tabs"],["Work in a simpler space.","space"],["Use one clear task at a time.","one"]],
+      interestloss:[["Track completed steps.","completed"],["Reward yourself with a healthy break.","break"],["Connect the task to a goal.","goal"],["Change the study/work method.","method"]]
+    },
+    results:{
+      fiveMot:"Tip: Five minutes is small enough to lower the barrier to starting.",
+      timeMot:"Tip: A specific start time is easier to act on than “later.”",
+      writeMot:"Tip: Writing the first step removes some of the thinking required at the moment of action.",
+      remove:"Tip: Removing one distraction can be more realistic than trying to create perfect focus.",
+      threeMot:"Tip: Smaller steps make a large task easier to approach.",
+      first:"Tip: You do not have to finish everything in one sitting.",
+      timer:"Tip: A short work block can make starting feel less permanent.",
+      done:"Tip: Decide in advance what a reasonable amount of progress looks like today.",
+      phone:"Tip: Physical distance from distractions can make focus easier.",
+      tabs:"Tip: Fewer open tabs reduce visual competition for your attention.",
+      space:"Tip: A simpler workspace can reduce unnecessary choices.",
+      one:"Tip: Focusing on one task at a time can make progress clearer.",
+      completed:"Tip: Visible progress can create its own sense of momentum.",
+      break:"Tip: Planned breaks can help you return to a task with a clearer mind.",
+      goal:"Tip: Connecting a task to a meaningful goal can make it feel more purposeful.",
+      method:"Tip: If one method repeatedly fails, experimenting with another method is reasonable."
+    }
+  },
+  studying:{
+    title:"Study Pressure",
+    intro:"When study pressure rises, it can help to separate what is urgent, what is important and what can wait.",
+    q1:"What feels hardest?",
+    a1:[["Too much work at once.","tooMuch"],["I cannot focus.","focus"],["I worry about results.","results"],["I do not know where to start.","startStudy"]],
+    q2:{tooMuch:"What would make the workload clearer?",focus:"What could make the next study block easier?",results:"What can you control today?",startStudy:"What is the smallest useful first step?"},
+    a2:{
+      tooMuch:[["List tasks and rank them.","rank"],["Choose one subject first.","subject"],["Break a chapter into sections.","sections"],["Set a realistic daily target.","daily"]],
+      focus:[["Use a short study block.","block"],["Remove one distraction.","removeStudy"],["Take a brief planned break.","breakStudy"],["Study with a clear question in mind.","questionStudy"]],
+      results:[["Focus on today's preparation.","today"],["Review what you can improve.","improve"],["Ask for clarification when needed.","clarify"],["Remember that one result is not your whole future.","future"]],
+      startStudy:[["Open the material and choose one page.","page"],["Write three things to learn.","threeStudy"],["Do one easy question first.","easy"],["Set a 10-minute start.","ten"]]
+    },
+    results:{
+      rank:"Tip: Ranking tasks turns a pile of work into a sequence.",
+      subject:"Tip: Choosing one subject first reduces the mental load of switching.",
+      sections:"Tip: Smaller sections make a large chapter feel more concrete.",
+      daily:"Tip: A realistic daily target is more useful than an impossible perfect schedule.",
+      block:"Tip: A short study block gives you a defined starting and stopping point.",
+      removeStudy:"Tip: Reducing one distraction can be enough to improve the next block.",
+      breakStudy:"Tip: Planned breaks can help you return without turning the break into endless delay.",
+      questionStudy:"Tip: A clear question gives your brain a specific target while studying.",
+      today:"Tip: Your preparation today is more controllable than predicting the final result.",
+      improve:"Tip: Focus on the next skill or topic you can improve.",
+      clarify:"Tip: Asking a teacher or trusted adult for clarification can save time and confusion.",
+      future:"Tip: One test or result is only one piece of a much larger educational journey.",
+      page:"Tip: Starting with one page creates a concrete action instead of an abstract goal.",
+      threeStudy:"Tip: Three learning targets give a study session a clear purpose.",
+      easy:"Tip: An easy first question can help you enter the task before moving to harder work.",
+      ten:"Tip: Ten minutes can be a manageable starting block when you feel overwhelmed."
+    }
+  }
+};
+
+const modal=document.getElementById('problemModal');
+const titleEl=document.getElementById('problemTitle');
+const introEl=document.getElementById('problemIntro');
+const q1El=document.getElementById('question1');
+const q2El=document.getElementById('question2');
+const answers1=document.getElementById('answers1');
+const answers2=document.getElementById('answers2');
+const result=document.getElementById('result');
+const reset=document.getElementById('resetProblem');
+const step1=document.getElementById('step1');
+const step2=document.getElementById('step2');
+let currentProblem=null, chosenKey=null;
+
+function openProblem(key){
+  currentProblem=problemData[key];
+  titleEl.textContent=currentProblem.title;
+  introEl.textContent=currentProblem.intro;
+  q1El.textContent=currentProblem.q1;
+  answers1.innerHTML='';
+  currentProblem.a1.forEach(([label,value])=>{
+    const b=document.createElement('button');
+    b.className='answer-btn'; b.textContent=label;
+    b.onclick=()=>showStep2(value);
+    answers1.appendChild(b);
+  });
+  step1.classList.add('active'); step2.classList.remove('active');
+  result.style.display='none'; reset.style.display='none';
+  modal.classList.add('open');
+}
+function showStep2(key){
+  chosenKey=key;
+  q2El.textContent=currentProblem.q2[key];
+  answers2.innerHTML='';
+  currentProblem.a2[key].forEach(([label,value])=>{
+    const b=document.createElement('button');
+    b.className='answer-btn'; b.textContent=label;
+    b.onclick=()=>showResult(value);
+    answers2.appendChild(b);
+  });
+  step1.classList.remove('active'); step2.classList.add('active');
+}
+function showResult(key){
+  result.style.display='block';
+  result.innerHTML='<strong>Penguins Tip</strong><span>'+currentProblem.results[key]+'</span>';
+  reset.style.display='inline-block';
+}
+document.querySelectorAll('.open-problem').forEach(b=>{
+  b.addEventListener('click',()=>openProblem(b.closest('.problem-card').dataset.problem));
+});
+document.getElementById('closeProblem').onclick=()=>modal.classList.remove('open');
+document.getElementById('backStep').onclick=()=>{step2.classList.remove('active');step1.classList.add('active');result.style.display='none';reset.style.display='none'};
+reset.onclick=()=>openProblem(Object.keys(problemData).find(k=>problemData[k]===currentProblem));
+modal.addEventListener('click',e=>{if(e.target===modal) modal.classList.remove('open')});
+
+
+const WA_NUMBER='94757218921';
+
+function val(id){
+  const el=document.getElementById(id);
+  return el ? el.value.trim() : '';
+}
+document.getElementById('submitIntro').addEventListener('click',()=>{
+  const name=val('memberName'), age=val('memberAge'), edu=val('memberEducation'),
+        hobby=val('memberHobby'), skills=val('memberSkills'), about=val('memberAbout');
+  if(!name){alert('Please enter your name first.');return;}
+  const message =
+`🐧 THE PENGUINS — MEMBER INTRODUCTION
+
+Name: ${name}
+Age: ${age || 'Not provided'}
+Education level: ${edu || 'Not provided'}
+Hobby / interests: ${hobby || 'Not provided'}
+Skills: ${skills || 'Not provided'}
+About me: ${about || 'Not provided'}
+
+I would like to introduce myself to THE PENGUINS.`;
+  window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`,'_blank');
+});
+
+const selectedChoices={};
+document.querySelectorAll('.choice-options').forEach(group=>{
+  const groupName=group.dataset.choiceGroup;
+  group.querySelectorAll('.choice-option').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      group.querySelectorAll('.choice-option').forEach(x=>x.classList.remove('selected'));
+      btn.classList.add('selected');
+      selectedChoices[groupName]=btn.dataset.value;
+      updateJoinSummary();
+    });
+  });
+});
+function updateJoinSummary(){
+  const labels=[
+    ['why','Why I chose THE PENGUINS'],
+    ['contribute','How I will contribute'],
+    ['gain','What I hope to gain'],
+    ['type','The kind of Penguin I want to be']
+  ];
+  const picked=labels.filter(([key])=>selectedChoices[key]);
+  const box=document.getElementById('joinSummary');
+  if(!picked.length){box.style.display='none';return;}
+  document.getElementById('summaryText').innerHTML=picked.map(([key,label])=>`<div style="margin:7px 0;color:#c7d5eb"><b>${label}:</b> ${selectedChoices[key]}</div>`).join('');
+  box.style.display='block';
+}
+document.getElementById('clearJoin').addEventListener('click',()=>{
+  Object.keys(selectedChoices).forEach(k=>delete selectedChoices[k]);
+  document.querySelectorAll('.choice-option').forEach(x=>x.classList.remove('selected'));
+  updateJoinSummary();
+});
+document.getElementById('submitJoin').addEventListener('click',()=>{
+  const labels={why:'Why I chose THE PENGUINS',contribute:'How I will contribute',gain:'What I hope to gain',type:'The kind of Penguin I want to be'};
+  const keys=['why','contribute','gain','type'];
+  const missing=keys.filter(k=>!selectedChoices[k]);
+  if(missing.length){alert('Please choose one answer for each question first.');return;}
+  const message=`🐧 THE PENGUINS — MEMBER PROFILE
+
+${labels.why}: ${selectedChoices.why}
+${labels.contribute}: ${selectedChoices.contribute}
+${labels.gain}: ${selectedChoices.gain}
+${labels.type}: ${selectedChoices.type}
+
+I would like to be part of THE PENGUINS community.`;
+  window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`,'_blank');
+});
+
+</script>
+</body>
+</html>
